@@ -17,9 +17,6 @@ resource "aws_security_group" "kubernetes-server-instance-sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags {
-    Name = "kubectl_server-SG"
-  }
 }
 
 resource "aws_instance" "kubernetes-server" {
