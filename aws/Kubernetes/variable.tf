@@ -1,13 +1,15 @@
 variable "profile" {
   description = "AWS User account Profile"
+  default = "default"
 }
 
 variable "region" {
-  default = "ap-south-1"
+  default = "cn-north-1"
 }
 
 variable "key" {
   description = "Enter Key name"
+  default = "poc-zhnc"
 }
 
 variable "sub_ids" {
@@ -15,7 +17,7 @@ variable "sub_ids" {
 }
 
 variable "instance-ami" {
-  default = "ami-0b99c7725b9484f9e" # AMI of Mumbai region
+  default = "ami-07108f3aaa373301b" # AMI of Mumbai region
 }
 
 variable "instance_type" {
@@ -25,13 +27,16 @@ variable "instance_type" {
 
 variable "cluster-name" {
   description = "Cluster Name"
+  default = "clusterdemo"
 }
 
 variable "server-name" {
   description = "Ec2 Server Name"
+  default = "cluseterdemoec2"
 }
 
 variable "vpc_name" {
   description = "VPC name"
+  default = "eksvpcdemo"
 }
   
