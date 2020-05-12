@@ -26,12 +26,12 @@ POLICY
 }
 
 resource "aws_iam_role_policy_attachment" "eks-cluster-AmazonEKSClusterPolicy" {
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
+  policy_arn = "arn:aws-cn:iam::aws:policy/AmazonEKSClusterPolicy"
   role       = "${aws_iam_role.cluster-role.name}"
 }
 
 resource "aws_iam_role_policy_attachment" "eks-cluster-AmazonEKSServicePolicy" {
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSServicePolicy"
+  policy_arn = "arn:aws-cn:iam::aws:policy/AmazonEKSServicePolicy"
   role       = "${aws_iam_role.cluster-role.name}"
 }
 
