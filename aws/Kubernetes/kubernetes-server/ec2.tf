@@ -32,9 +32,6 @@ resource "aws_instance" "kubernetes-server" {
     delete_on_termination = "true"
   }
 
-  tags {
-    Name = "${var.server-name}"
-  }
 }
 
 resource "aws_eip" "ip" {
