@@ -11,3 +11,7 @@ output "subnet_ids"{
 output "fix_subnet_ids"{
   value = concat("${module.vpc.master_subnet}"[0], "${module.vpc.worker_node_subnet}"[0])
 }
+
+output "worker_node_subnet"{
+  value = ["${module.vpc.worker_node_subnet}"]
+}

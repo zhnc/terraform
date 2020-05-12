@@ -31,7 +31,6 @@ module "eks" {
   cluster-name                  = "${var.cluster-name}"
   kubernetes-server-instance-sg = "${module.kubernetes-server.kubernetes-server-instance-sg}"
   eks_subnets                   = ["${module.vpc.master_subnet}"]
-  worker_subnet                 = ["${module.vpc.worker_node_subnet}"]
+  worker_subnet                 = "${module.vpc.worker_node_subnet}"[0]
   subnet_ids                    = concat("${module.vpc.master_subnet}"[0], "${module.vpc.worker_node_subnet}"[0])
 }
-

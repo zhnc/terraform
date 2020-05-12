@@ -18,7 +18,7 @@ resource "aws_iam_role" "worker-node-role" {
     {
       "Effect": "Allow",
       "Principal": {
-        "Service": "ec2.amazonaws.com"
+        "Service": "ec2.amazonaws.com.cn"
       },
       "Action": "sts:AssumeRole"
     }
