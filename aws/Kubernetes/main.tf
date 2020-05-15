@@ -34,3 +34,8 @@ module "eks" {
   worker_subnet                 = "${module.vpc.worker_node_subnet}"[0]
   subnet_ids                    = concat("${module.vpc.master_subnet}"[0], "${module.vpc.worker_node_subnet}"[0])
 }
+
+resource "aws_kms_key" "a" {
+  description             = "KMS key 1"
+  deletion_window_in_days = 10
+}

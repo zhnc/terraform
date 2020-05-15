@@ -15,3 +15,7 @@ output "fix_subnet_ids"{
 output "worker_node_subnet"{
   value = ["${module.vpc.worker_node_subnet}"]
 }
+
+output "kms"{
+  value = "${aws_kms_key.a.key_id}" 
+}
