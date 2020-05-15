@@ -147,3 +147,32 @@ resource "aws_route_table_association" "private_sub" {
   subnet_id      = "${element(aws_subnet.private_subnet.*.id, count.index)}"
   route_table_id = "${aws_route_table.rt_private.id}"
 }
+
+resource "aws_security_group" "kms_endpoint_sg" {
+  description = "Allow vault connect kms"
+  vpc_id      = "${aws_vpc.this.id}"
+  name        = "kms_endpoint_sg"
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  ingress {
+    description = "connect from vault"
+    from_port   = 0 
+    to_port     = 0 
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"] 
+  }
+}
+
+
+resource "aws_vpc_endpoint" "kms" {
+  vpc_id       = "${aws_vpc.this.id}"
+  service_name = "com.amazonaws.cn-north-1.kms"
+  subnet_ids = "${aws_subnet.public_subnet.*.id}"
+  vpc_endpoint_type = "Interface"
+  security_group_ids = ["${aws_security_group.kms_endpoint_sg.id}"]
+}

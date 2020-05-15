@@ -23,3 +23,7 @@ output "private_subnet" {
 output "worker_node_subnet" {
   value = ["${aws_subnet.worker_subnet.*.id}"]
 }
+
+output "kms_endpoint"{
+  value = "${lookup(aws_vpc_endpoint.kms.dns_entry[0],"dns_name")}"
+}

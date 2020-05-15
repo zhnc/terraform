@@ -19,3 +19,8 @@ output "worker_node_subnet"{
 output "kms"{
   value = "${aws_kms_key.a.key_id}" 
 }
+
+
+output "kms_endpoint"{
+  value = "${module.vpc.kms_endpoint}"
+}
